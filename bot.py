@@ -285,8 +285,6 @@ async def VidWatermarkAdder(bot, cmd):
 		await editable.delete()
 		await cmd.reply_text("This Saved as Next Video Watermark!\n\nNow Send any Video to start adding Watermark to the Video!")
 		return
-	else:
-		pass
 	working_dir = Config.DOWN_PATH + "/WatermarkAdder/"
 	if not os.path.exists(working_dir):
 		os.makedirs(working_dir)
@@ -402,7 +400,7 @@ async def VidWatermarkAdder(bot, cmd):
 		await logs_msg.edit(f"#ERROR: Unable to add Watermark!\n\n**Error:** `{err}`")
 		await delete_all()
 		return
-	if output_vid == None:
+	if output_vid is None:
 		await editable.edit("Something went wrong!")
 		await logs_msg.edit("#ERROR: Something went wrong!")
 		await delete_all()
